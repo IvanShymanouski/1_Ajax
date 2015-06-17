@@ -1,0 +1,28 @@
+﻿@model List<string>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FromAjax</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+    <div>
+        @Html.ActionLink("Back","Index")
+        <h3>Comments</h3>
+        <ul id="comments">
+            @foreach (var comment in Model)
+            {
+                <li>@comment</li>
+            }
+        </ul>
+        @using(Ajax.BeginForm("FormAjax", new AjaxOptions { InsertionMode = InsertionMode.InsertAfter, UpdateTargetId = "comments" })){
+          <p>@Html.TextArea("comment", null, 6, 30, new { })</p>
+          <input type="submit" value="comment">
+        }
+    </div>
+</body>
+</html>

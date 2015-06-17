@@ -1,0 +1,33 @@
+﻿@using AJAXtasks.Models;
+@model IdComment
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>JqueryAjax</title>
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src ="@Url.Content("~/Scripts/AJAXtasks/CommentJqueryAjax.js")" ></script>
+</head>
+<body>
+    <div>
+        @Html.ActionLink("Back","Index")
+        <h3>Comments</h3>
+        <ul id="comments">
+            @foreach (var comment in ViewBag.comments)
+            {
+                <li>Id : @comment.Id - @comment.Comment</li>
+            }
+        </ul>
+        @using (Html.BeginForm("JqueryAjax","Home",FormMethod.Post,new { id = "commentSend" }))
+        {
+            <b>id</b><br>
+            @Html.TextBoxFor(m => m.Id)<br><br>
+            <b>comment</b><br>
+            @Html.TextAreaFor(m => m.Comment,4,20,new{})<br><br>
+            <input type="submit" value="comment">
+        }
+    </div>
+</body>
+</html>
