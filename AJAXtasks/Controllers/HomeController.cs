@@ -51,7 +51,7 @@ namespace AJAXtasks.Controllers
             idComments.Add(idComment);
             if (Request.IsAjaxRequest())
             {
-                return Json(idComment);
+                return Json(idComments);
             }
             return RedirectToAction("JqueryAjax");
         }

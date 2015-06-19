@@ -6,8 +6,13 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>JqueryAjax</title>
+    <title>JqueryAjax</title>   
     @Scripts.Render("~/bundles/jquery")
+    <script id="commentTemplate" type="text/x-jquery-tmpl">
+        <li> 
+            Id :${Id} - ${Comment}
+        </li>
+    </script>
     <script type="text/javascript" src ="@Url.Content("~/Scripts/AJAXtasks/CommentJqueryAjax.js")" ></script>
 </head>
 <body>
